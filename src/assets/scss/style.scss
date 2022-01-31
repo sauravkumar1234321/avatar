@@ -1,0 +1,73 @@
+#container{
+    position: absolute;
+    margin:auto;
+    width: 1000px;
+    height: 900px;
+}
+
+#body{
+    position:absolute;
+    width: 800px;;   /* width of actual image */
+    height: 800px;; /* height of actual image */
+    background-image: url("../img/body.png");
+    background-repeat: no-repeat;
+}
+
+#background{
+    bottom: 1246px;
+    right: 1119px;
+    position: right;
+}
+
+#head,  #bottom{
+    position:absolute;
+    width: 800px;;   /* width of actual image */
+    height: 800px;; /* height of actual image */
+}
+
+// update this map when new items or categories are added
+$items: ("head": 5, "bottom": 3);
+
+@each $item, $total in $items {
+
+    @for $i from 1 through $total {
+        .#{$item}#{$i} {
+            background-image: url(../img/#{$item}/#{$item}#{$i}.png);
+        }
+    }
+}
+
+$height: 300px;
+
+@each $item, $total in $items {
+
+    $height: $height + 30px;
+
+    #next1#{$item}{
+        position:absolute;
+        left: 1000px;;
+        top: $height;
+       
+    }
+    #next2#{$item}{
+        position:absolute;
+        left: 1200px;;
+        top: $height;
+    }
+
+    #next3#{$item}{
+        position:absolute;
+        left: 950px;;
+        width: 500px;;
+        top: 100px;
+    }
+
+    
+    #next4#{$item}{
+        position:absolute;
+        left: 1020px;;
+        width: 300px;;
+        top: 440px;
+    }
+    
+}
